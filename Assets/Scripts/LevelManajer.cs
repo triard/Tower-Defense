@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class LevelManajer : MonoBehaviour
 {
@@ -28,10 +29,7 @@ public class LevelManajer : MonoBehaviour
 
     private void CreateLevel()
     {
-        string[] mapData = new string[]
-        {
-            "0000", "1111","2222","3333","4444","5555"
-        };
+        string[] mapData = ReadLevelText();
 
         int mapX = mapData[0].ToCharArray().Length;
         int mapY =mapData.Length;
@@ -54,6 +52,15 @@ public class LevelManajer : MonoBehaviour
         int tileIndex = int.Parse(tileType);
         GameObject newTile = Instantiate(tilePrefabs[tileIndex]);
         newTile.transform.position = new Vector3(worldStart.x + (TileSize * x), worldStart.y - (TileSize * y), 0);
+    }
+
+    private string[] ReadLevelText()
+    {
+        TextAsset bindData = Resources.Load("Level") as TextAsset;
+
+        string data = bindData.text.Replace(Environment.NewLine, string.Empty);
+
+        return data.Split('-');
     }
 }
     
