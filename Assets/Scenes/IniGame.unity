@@ -308,6 +308,7 @@ GameObject:
   - component: {fileID: 443891093}
   - component: {fileID: 443891092}
   - component: {fileID: 443891091}
+  - component: {fileID: 443891094}
   m_Layer: 5
   m_Name: PosionButton
   m_TagString: Untagged
@@ -374,7 +375,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 443891092}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 491162151}
+        m_MethodName: PickTower
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 443891094}
+          m_ObjectArgumentAssemblyTypeName: TowerButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &443891092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,6 +422,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 443891089}
   m_CullTransparentMesh: 0
+--- !u!114 &443891094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443891089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8a869f8fad4204a8a5473a8455d9e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerPrefabs: {fileID: 8211781595091586068, guid: 30b0ef647d27f7a428dba9b22135c5c7,
+    type: 3}
 --- !u!1 &491162150
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,8 +465,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58fc999c00e98f448b18b8a77a6986a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefabs: {fileID: 435612001579294519, guid: 28cf5295a46a4ac41bb0f4940b19ad3b,
-    type: 3}
 --- !u!4 &491162152
 Transform:
   m_ObjectHideFlags: 0
@@ -636,6 +660,7 @@ GameObject:
   - component: {fileID: 667469665}
   - component: {fileID: 667469664}
   - component: {fileID: 667469663}
+  - component: {fileID: 667469666}
   m_Layer: 5
   m_Name: FrostButton
   m_TagString: Untagged
@@ -702,7 +727,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 667469664}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 491162151}
+        m_MethodName: PickTower
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 667469666}
+          m_ObjectArgumentAssemblyTypeName: TowerButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &667469664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,6 +774,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 667469661}
   m_CullTransparentMesh: 0
+--- !u!114 &667469666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667469661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8a869f8fad4204a8a5473a8455d9e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerPrefabs: {fileID: 3159980028904981698, guid: 90643aea234a75045ab3ba05e91add4c,
+    type: 3}
 --- !u!1 &806571446
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,6 +800,7 @@ GameObject:
   - component: {fileID: 806571450}
   - component: {fileID: 806571449}
   - component: {fileID: 806571448}
+  - component: {fileID: 806571451}
   m_Layer: 5
   m_Name: FireButton
   m_TagString: Untagged
@@ -816,7 +867,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 806571449}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 491162151}
+        m_MethodName: PickTower
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 806571451}
+          m_ObjectArgumentAssemblyTypeName: TowerButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &806571449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -852,6 +914,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806571446}
   m_CullTransparentMesh: 0
+--- !u!114 &806571451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806571446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8a869f8fad4204a8a5473a8455d9e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerPrefabs: {fileID: 6391547307626753086, guid: b847212624fdc7c4eb88c7e24ad8157c,
+    type: 3}
 --- !u!1 &1006030752
 GameObject:
   m_ObjectHideFlags: 0
@@ -1140,6 +1216,7 @@ GameObject:
   - component: {fileID: 1533471423}
   - component: {fileID: 1533471422}
   - component: {fileID: 1533471421}
+  - component: {fileID: 1533471424}
   m_Layer: 5
   m_Name: StromButton
   m_TagString: Untagged
@@ -1206,7 +1283,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1533471422}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 491162151}
+        m_MethodName: PickTower
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1533471424}
+          m_ObjectArgumentAssemblyTypeName: TowerButton, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1533471422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1242,6 +1330,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1533471419}
   m_CullTransparentMesh: 0
+--- !u!114 &1533471424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1533471419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8a869f8fad4204a8a5473a8455d9e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerPrefabs: {fileID: 1624354454026423327, guid: 6cdc4e2c8333d0f4ab56125dcc8298c7,
+    type: 3}
 --- !u!1 &2006130895
 GameObject:
   m_ObjectHideFlags: 0
