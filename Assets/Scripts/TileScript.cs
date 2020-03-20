@@ -33,6 +33,18 @@ public class TileScript : MonoBehaviour
         transform.position = worldPos;
         transform.SetParent(parent);
         LevelManajer.Instance.Tiles.Add(gridPos, this);
+    }
 
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            PlaceTower();
+        }
+    }
+
+    private void PlaceTower()
+    {
+        Instantiate(GameManajer.Instance.TowerPrefabs, transform.position, Quaternion.identity);
     }
 }
