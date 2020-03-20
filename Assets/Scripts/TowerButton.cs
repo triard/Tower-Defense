@@ -8,11 +8,21 @@ public class TowerButton : MonoBehaviour
 
     [SerializeField]
     private GameObject towerPrefabs;
+    [SerializeField]
+    private Sprite sprite;
     public GameObject TowerPrefabs
     {
         get
         {
             return towerPrefabs;
+        }
+    }
+
+    public Sprite Sprite
+    {
+        get
+        {
+            return sprite;
         }
     }
 

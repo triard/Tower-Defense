@@ -55,6 +55,8 @@ public class TileScript : MonoBehaviour
         tower.GetComponent<SpriteRenderer>().sortingOrder = GridPosition.Y;
         tower.transform.SetParent(transform);
 
+        Hover.Instance.Deactivate();
+
         GameManajer.Instance.BuyTower();
     }
 }

@@ -22,6 +22,7 @@ public class GameManajer : Singleton<GameManajer>
     public void PickTower(TowerButton towerBtn)
     {
         this.ClikedBtn = towerBtn;
+        Hover.Instance.Active(towerBtn.Sprite);
     }
 
     public void BuyTower()
