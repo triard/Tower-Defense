@@ -6,7 +6,7 @@ public class GameManajer : Singleton<GameManajer>
 {
 
   
-    public TowerButton ClikedBtn { get; private set; }
+    public TowerButton ClikedBtn { get; set; }
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,7 @@ public class GameManajer : Singleton<GameManajer>
     // Update is called once per frame
     void Update()
     {
-        
+        HandleEscape();
     }
 
     public void PickTower(TowerButton towerBtn)
@@ -27,6 +27,14 @@ public class GameManajer : Singleton<GameManajer>
 
     public void BuyTower()
     {
-        ClikedBtn = null;
+        Hover.Instance.Deactivate();
+    }
+
+    private void HandleEscape()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Hover.Instance.Deactivate();
+        }
     }
 }
