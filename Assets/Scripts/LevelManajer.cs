@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class LevelManajer : MonoBehaviour
+public class LevelManajer : Singleton<LevelManajer>
 {
 
     [SerializeField]
@@ -75,7 +75,7 @@ public class LevelManajer : MonoBehaviour
 
         newTile.SetUp(new Point(x, y), new Vector3(worldStart.x + (TileSize * x), worldStart.y - (TileSize * y), 0));
 
-        Tiles.Add(new Point(x, y), newTile);
+       
     }
 
     private string[] ReadLevelText()
