@@ -37,11 +37,6 @@ public class LevelManajer : MonoBehaviour
 
     }
 
-
-    public void TestValue(Point p)
-    {
-        p.X = 3;
-    }
     private void CreateLevel()
     {
         Tiles = new Dictionary<Point, TileScript>();
@@ -100,7 +95,7 @@ public class LevelManajer : MonoBehaviour
 
         RedSpawn = new Point(10, 6);
 
-        Instantiate(bluePortalPrefabs, Tiles[RedSpawn].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
+        Instantiate(redPortalPrefabs, Tiles[RedSpawn].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
     }
 }
     
