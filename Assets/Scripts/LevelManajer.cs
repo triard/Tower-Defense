@@ -19,8 +19,6 @@ public class LevelManajer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // Point p = new Point(0, 0);
-        //Debug.Log(p.X);
         CreateLevel();
     }
 
@@ -30,10 +28,10 @@ public class LevelManajer : MonoBehaviour
 
     }
 
-   // public void TestValue(Point p)
-   // {
-     //   p.X = 3;
-    //}
+    public void TestValue(Point p)
+    {
+        p.X = 3;
+    }
     private void CreateLevel()
     {
         string[] mapData = ReadLevelText();
@@ -61,8 +59,10 @@ public class LevelManajer : MonoBehaviour
     private Vector3 PlaceTile(string tileType ,int x,int y, Vector3 worldStart)
     {
         int tileIndex = int.Parse(tileType);
-        GameObject newTile = Instantiate(tilePrefabs[tileIndex]);
-        newTile.transform.position = new Vector3(worldStart.x + (TileSize * x), worldStart.y - (TileSize * y), 0);
+
+        TileScript newTile = Instantiate(tilePrefabs[tileIndex]).GetComponent<TileScript>();
+
+        newTile.SetUp(new Point(x, y), new Vector3(worldStart.x + (TileSize * x), worldStart.y - (TileSize * y), 0));
 
         return newTile.transform.position;
     }
