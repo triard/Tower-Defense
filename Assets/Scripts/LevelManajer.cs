@@ -10,24 +10,30 @@ public class LevelManajer : MonoBehaviour
     public GameObject[] tilePrefabs;
 
     [SerializeField]
-    private CameraMovement cameraMovement;
+    public CameraMovement cameraMovement;
 
     public float TileSize
     {
-        get{ return tilePrefabs[0].GetComponent<SpriteRenderer>().sprite.bounds.size.x; }
+        get { return tilePrefabs[0].GetComponent<SpriteRenderer>().sprite.bounds.size.x; }
     }
     // Start is called before the first frame update
     void Start()
     {
+       // Point p = new Point(0, 0);
+        //Debug.Log(p.X);
         CreateLevel();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
+   // public void TestValue(Point p)
+   // {
+     //   p.X = 3;
+    //}
     private void CreateLevel()
     {
         string[] mapData = ReadLevelText();
