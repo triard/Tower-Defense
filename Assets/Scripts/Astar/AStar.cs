@@ -25,6 +25,20 @@ public static class AStar
         Node currentNode = nodes[start];
         openList.Add(currentNode);
 
+        for (int x = -1 ;x <= 1; x++)
+        {
+            for(int y = -1; y <= 1; y++)
+            {
+                Point neighbourPos = new Point(currentNode.GridPosition.X - x, currentNode.GridPosition.Y - y);
+                if (LevelManajer.Instance.InBounds(neighbourPos) && LevelManajer.Instance.Tiles[neighbourPos].WalkAble &&neighbourPos != currentNode.GridPosition)
+                {
+                    Node neighbour = nodes[neighbourPos];
+                    neighbour.TileRef.SpriteRenderer.color = Color.black;
+                }
+            }
+        }
+
+
         GameObject.Find("AStarDebugger")
                   .GetComponent<AStarDebugger>()
                   .DebugPath(openList);

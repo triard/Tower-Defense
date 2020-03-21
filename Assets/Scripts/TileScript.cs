@@ -16,6 +16,8 @@ public class TileScript : MonoBehaviour
     private Color32 emptyColor = new Color32(96, 255, 90, 255);
 
     public SpriteRenderer SpriteRenderer { get; private set; } 
+
+    public bool WalkAble { get; set; }
     public bool Debugging { get; set; }
     public Vector2 WorldPosition
     {
@@ -41,6 +43,7 @@ public class TileScript : MonoBehaviour
 
     public void SetUp(Point gridPos, Vector3 worldPos, Transform parent)
     {
+        WalkAble = true;
         IsEmpty = true;
         this.GridPosition = gridPos;
         transform.position = worldPos;
@@ -87,6 +90,7 @@ public class TileScript : MonoBehaviour
         IsEmpty = false;
         ColorTile(Color.white);
         GameManajer.Instance.BuyTower();
+        WalkAble = false;
     }
 
     private void ColorTile(Color newColor)

@@ -640,7 +640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4923635c87b7b4dadd23233f148424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blankTile: {fileID: 21300000, guid: 17abfd3975e450a4fb2b75e0e8578c77, type: 3}
+  blankTile: {fileID: 21300000, guid: 748996ddaffcafb4c9d7b97cb894d6e2, type: 3}
 --- !u!4 &594884724
 Transform:
   m_ObjectHideFlags: 0
