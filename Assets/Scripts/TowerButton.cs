@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TowerButton : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class TowerButton : MonoBehaviour
     private GameObject towerPrefabs;
     [SerializeField]
     private Sprite sprite;
+    [SerializeField]
+    private int price;
+    [SerializeField]
+    private Text priceTxt; 
     public GameObject TowerPrefabs
     {
         get
@@ -26,7 +31,15 @@ public class TowerButton : MonoBehaviour
         }
     }
 
-   
-    // Start is called before the first frame update
+    public int Price { 
+        get
+        {
+           return price;
+        }
+    }
 
+    private void Start()
+    {
+        priceTxt.text = price + "Coins";
+    }
 }

@@ -39,13 +39,23 @@ public class GameManajer : Singleton<GameManajer>
 
     public void PickTower(TowerButton towerBtn)
     {
-        this.ClikedBtn = towerBtn;
-        Hover.Instance.Active(towerBtn.Sprite);
+        if (Currency>=towerBtn.Price)
+        {
+            this.ClikedBtn = towerBtn;
+            Hover.Instance.Active(towerBtn.Sprite);
+        }
+
+        
     }
 
     public void BuyTower()
     {
-        Hover.Instance.Deactivate();
+        if (Currency >= ClikedBtn.Price)
+        {
+            Currency -= ClikedBtn.Price;
+
+            Hover.Instance.Deactivate();
+        }
     }
 
     private void HandleEscape()
