@@ -17,8 +17,10 @@ public class LevelManajer : Singleton<LevelManajer>
 
     private Point BlueSpawn;
     private Point RedSpawn;
+
     [SerializeField]
     private GameObject bluePortalPrefabs;
+    
     [SerializeField]
     private GameObject redPortalPrefabs;
 
@@ -96,7 +98,7 @@ public class LevelManajer : Singleton<LevelManajer>
 
         Instantiate(bluePortalPrefabs, Tiles[BlueSpawn].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
 
-        RedSpawn = new Point(10, 6);
+        RedSpawn = new Point(11, 6);
 
         Instantiate(redPortalPrefabs, Tiles[RedSpawn].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
     }

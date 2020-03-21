@@ -14,7 +14,9 @@ public class TileScript : MonoBehaviour
     }
     private Color32 fullColor = new Color32(255, 118, 118, 255);
     private Color32 emptyColor = new Color32(96, 255, 90, 255);
-    private SpriteRenderer SpriteRenderer;
+
+    public SpriteRenderer SpriteRenderer { get; private set; } 
+    public bool Debugging { get; set; }
     public Vector2 WorldPosition
     {
         get
@@ -22,6 +24,8 @@ public class TileScript : MonoBehaviour
             return new Vector2(transform.position.x + (GetComponent<SpriteRenderer>().bounds.size.x / 2), transform.position.y - (GetComponent<SpriteRenderer>().bounds.size.y / 2));
         }
     }
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -49,11 +53,11 @@ public class TileScript : MonoBehaviour
         ColorTile(fullColor);
         if (!EventSystem.current.IsPointerOverGameObject() && GameManajer.Instance.ClikedBtn != null)
         {
-            if (IsEmpty)
+            if (IsEmpty && !Debugging)
             {
                 ColorTile(emptyColor);
             }
-            if (!IsEmpty)
+            if (!IsEmpty && !Debugging)
             {
                 ColorTile(fullColor);
             }
@@ -66,7 +70,10 @@ public class TileScript : MonoBehaviour
 
     private void OnMouseExit()
     {
-        ColorTile(Color.white);
+        if (!Debugging)
+        {
+            ColorTile(Color.white);
+        }
     }
 
     private void PlaceTower()
