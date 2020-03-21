@@ -13,4 +13,20 @@ public static class AStar
             nodes.Add(tile.GridPosition, new Node(tile));
         }
     }
+
+    public static void GetPath(Point start)
+    {
+        if (nodes == null)
+        {
+            CreateNodes();
+        }
+
+        HashSet<Node> openList = new HashSet<Node>();
+        Node currentNode = nodes[start];
+        openList.Add(currentNode);
+
+        GameObject.Find("AStarDebugger")
+                  .GetComponent<AStarDebugger>()
+                  .DebugPath(openList);
+    }
 }
