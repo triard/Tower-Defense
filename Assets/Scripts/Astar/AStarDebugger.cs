@@ -28,7 +28,7 @@ public class AStarDebugger : MonoBehaviour
         CLickTale();
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            AStar.GetPath(start.GridPosition);
+            AStar.GetPath(start.GridPosition, goal.GridPosition);
         }
     }
 
@@ -120,7 +120,14 @@ public class AStarDebugger : MonoBehaviour
         GameObject debugTile = Instantiate(debugTilePrefabs, worldPos, Quaternion.identity);
         if (node != null)
         {
-            debugTile.GetComponent<DebugTile>().G.text += node.G;
+            DebugTile tmp = debugTile.GetComponent<DebugTile>();
+
+            tmp.G.text += node.G;
+            tmp.H.text += node.H;
+            tmp.F.text += node.F;
+
+            //debugTile.GetComponent<DebugTile>().G.text += node.G;
+           // debugTile.GetComponent<DebugTile>().H.text += node.H;
         }
 
         debugTile.GetComponent<SpriteRenderer>().color = color;
