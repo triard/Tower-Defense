@@ -33,7 +33,12 @@ public static class AStar
                 if (LevelManajer.Instance.InBounds(neighbourPos) && LevelManajer.Instance.Tiles[neighbourPos].WalkAble &&neighbourPos != currentNode.GridPosition)
                 {
                     Node neighbour = nodes[neighbourPos];
-                    neighbour.TileRef.SpriteRenderer.color = Color.black;
+                    if (!openList.Contains(neighbour))
+                    {
+                        openList.Add(neighbour);
+                    }
+
+                    neighbour.CalsValues(currentNode);
                 }
             }
         }

@@ -8,7 +8,10 @@ public class AStarDebugger : MonoBehaviour
     private TileScript start, goal;
 
     [SerializeField]
-    public Sprite blankTile;
+    private Sprite blankTile;
+
+    [SerializeField]
+    private GameObject arrowPrefabs;
 
     // Start is called before the first frame update
     void Start()
@@ -52,13 +55,58 @@ public class AStarDebugger : MonoBehaviour
                 }
             }
         }
-    }
+    }   
     public void DebugPath(HashSet<Node> openList)
     {
         foreach (Node node in openList)
         {
-            node.TileRef.SpriteRenderer.color = Color.cyan;
-            node.TileRef.SpriteRenderer.sprite = blankTile;
+            if (node.TileRef != start)
+            {
+                node.TileRef.SpriteRenderer.color = Color.cyan;
+                node.TileRef.SpriteRenderer.sprite = blankTile;
+            }
+
+            PointToParent(node, node.TileRef.WorldPosition);
+        }
+    }
+
+    private void PointToParent(Node node, Vector2 position)
+    {
+        if (node.Parent != null)
+        {
+            GameObject arrow = Instantiate(arrowPrefabs, position, Quaternion.identity);
+            if ((node.GridPosition.X < node.Parent.GridPosition.X) && (node.GridPosition.Y == node.Parent.GridPosition.Y))
+            {
+                arrow.transform.eulerAngles = new Vector3(0, 0, 0);
+            }
+            else if ((node.GridPosition.X < node.Parent.GridPosition.X) && (node.GridPosition.Y > node.Parent.GridPosition.Y))
+            {
+                arrow.transform.eulerAngles = new Vector3(0, 0, 45);
+            }
+            else if ((node.GridPosition.X == node.Parent.GridPosition.X) && (node.GridPosition.Y > node.Parent.GridPosition.Y))
+            {
+                arrow.transform.eulerAngles = new Vector3(0, 0, 90);
+            }
+            else if ((node.GridPosition.X > node.Parent.GridPosition.X) && (node.GridPosition.Y > node.Parent.GridPosition.Y))
+            {
+                arrow.transform.eulerAngles = new Vector3(0, 0, 135);
+            }
+            else if ((node.GridPosition.X > node.Parent.GridPosition.X) && (node.GridPosition.Y == node.Parent.GridPosition.Y))
+            {
+                arrow.transform.eulerAngles = new Vector3(0, 0, 180);
+            }
+            else if ((node.GridPosition.X > node.Parent.GridPosition.X) && (node.GridPosition.Y < node.Parent.GridPosition.Y))
+            {
+                arrow.transform.eulerAngles = new Vector3(0, 0, 255);
+            }
+            else if ((node.GridPosition.X == node.Parent.GridPosition.X) && (node.GridPosition.Y < node.Parent.GridPosition.Y))
+            {
+                arrow.transform.eulerAngles = new Vector3(0, 0, 270);
+            }
+            else if ((node.GridPosition.X < node.Parent.GridPosition.X) && (node.GridPosition.Y < node.Parent.GridPosition.Y))
+            {
+                arrow.transform.eulerAngles = new Vector3(0, 0, 315);
+            }
         }
     }
 }

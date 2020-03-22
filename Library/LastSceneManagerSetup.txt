@@ -1,4 +1,4 @@
 sceneSetups:
-- path: C:/Users/tri/Videos/2d-tower-defense-tutorial-master/2D Tower Defense Tutorial/Assets/Scenes/MainScene.unity
+- path: C:/Users/tri/Videos/Tower Defense/Assets/Scenes/IniGame.unity
   isLoaded: 1
   isActive: 1
