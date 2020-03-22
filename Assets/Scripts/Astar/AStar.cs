@@ -39,7 +39,7 @@ public static class AStar
                 for (int y = -1; y <= 1; y++)
                 {
                     Point neighbourPos = new Point(currentNode.GridPosition.X - x, currentNode.GridPosition.Y - y);
-                    if (LevelManajer.Instance.InBounds(neighbourPos) && LevelManajer.Instance.Tiles[neighbourPos].WalkAble && neighbourPos != currentNode.GridPosition)
+                    if (LevelManajer.Instance.InBounds(neighbourPos) && LevelManajer.Instance.Tiles[neighbourPos].Walkable && neighbourPos != currentNode.GridPosition)
                     {
 
                         int gCost = 0;
@@ -49,6 +49,10 @@ public static class AStar
                         }
                         else
                         {
+                            if(!ConnectedDiagonally(currentNode, nodes[neighbourPos]))
+                            {
+                                continue;
+                            }
                             gCost = 14;
                         }
 
@@ -93,6 +97,24 @@ public static class AStar
 
         GameObject.Find("AstarDebugger")
                   .GetComponent<AStarDebugger>()
-                  .DebugPath(openList, closeList);
+                  .DebugPath(openList, closeList,finalPath);
+    }
+
+    private static bool ConnectedDiagonally(Node currentNode, Node neigbour)
+    {
+        Point direction = neigbour.GridPosition - currentNode.GridPosition;
+
+        Point first = new Point(currentNode.GridPosition.X + direction.X, currentNode.GridPosition.Y + direction.Y);
+        Point second = new Point(currentNode.GridPosition.X, currentNode.GridPosition.Y + direction.Y);
+
+        if (LevelManajer.Instance.InBounds(first) && !LevelManajer.Instance.Tiles[first].Walkable)
+        {
+            return false;
+        }
+        if(LevelManajer.instance.InBounds(second) && !LevelManajer.Instance.Tiles[second].Walkable)
+        {
+            return false;
+        }
+        return true;
     }
 }
