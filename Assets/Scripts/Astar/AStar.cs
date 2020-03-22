@@ -22,6 +22,7 @@ public static class AStar
         }
 
         HashSet<Node> openList = new HashSet<Node>();
+        HashSet<Node> closeList = new HashSet<Node>();
         Node currentNode = nodes[start];
         openList.Add(currentNode);
 
@@ -39,13 +40,16 @@ public static class AStar
                     }
 
                     neighbour.CalsValues(currentNode);
+
                 }
             }
         }
 
+        openList.Remove(currentNode);
+        closeList.Add(currentNode);
 
-        GameObject.Find("AStarDebugger")
+        GameObject.Find("AstarDebugger")
                   .GetComponent<AStarDebugger>()
-                  .DebugPath(openList);
+                  .DebugPath(openList, closeList);
     }
 }
