@@ -1,4 +1,4 @@
 sceneSetups:
-- path: C:/Users/tri/Videos/Tower Defense/Assets/Scenes/IniGame.unity
+- path: Assets/Scenes/IniGame.unity
   isLoaded: 1
   isActive: 1
