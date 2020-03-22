@@ -9,15 +9,16 @@ public class Node
     public TileScript TileRef { get; private set; }
 
     public Node Parent { get; private set; }
-
+    public int G { get; set; }
     public Node(TileScript tileRef)
     {
         this.TileRef = tileRef;
         this.GridPosition = tileRef.GridPosition;
     }
 
-    public void CalsValues(Node parent)
+    public void CalsValues(Node parent, int gCost)
     {
         this.Parent = parent;
+        this.G = parent.G + gCost;
     }
 }

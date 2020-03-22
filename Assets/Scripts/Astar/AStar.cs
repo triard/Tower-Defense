@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,13 +34,24 @@ public static class AStar
                 Point neighbourPos = new Point(currentNode.GridPosition.X - x, currentNode.GridPosition.Y - y);
                 if (LevelManajer.Instance.InBounds(neighbourPos) && LevelManajer.Instance.Tiles[neighbourPos].WalkAble &&neighbourPos != currentNode.GridPosition)
                 {
+
+                    int gCost = 0;
+                    if (Math.Abs(x - y) == 1)
+                    {
+                        gCost = 10;
+                    }
+                    else
+                    {
+                        gCost = 14;
+                    }
+
                     Node neighbour = nodes[neighbourPos];
                     if (!openList.Contains(neighbour))
                     {
                         openList.Add(neighbour);
                     }
 
-                    neighbour.CalsValues(currentNode);
+                    neighbour.CalsValues(currentNode, gCost);
 
                 }
             }
